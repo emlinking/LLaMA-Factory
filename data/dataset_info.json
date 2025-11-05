@@ -1,14 +1,14 @@
 {
-  "parallel_prompts_sw_train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/untokenized",
+  "parallel-prompts-sw-Llama-3.1-Nemotron-Nano-8B-v1-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Llama-3.1-Nemotron-Nano-8B-v1/train",
     "split": "train",
     "columns (optional)": {
       "query": "src",
       "response": "tgt"
     }
   },
-  "parallel_prompts_sw_val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/untokenized",
+  "parallel-prompts-sw-Llama-3.1-Nemotron-Nano-8B-v1-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Llama-3.1-Nemotron-Nano-8B-v1/val",
     "split": "val",
     "columns (optional)": {
       "query": "src",
