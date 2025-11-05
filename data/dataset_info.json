@@ -3,16 +3,18 @@
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Llama-3.1-Nemotron-Nano-8B-v1/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
-      "query": "src",
-      "response": "tgt"
+      "query": "input",
+      "response": "output",
+      "history": "history"
     }
   },
   "parallel-prompts-sw-Llama-3.1-Nemotron-Nano-8B-v1-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Llama-3.1-Nemotron-Nano-8B-v1/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
-      "query": "src",
-      "response": "tgt"
+      "query": "input",
+      "response": "output",
+      "history": "history"
     }
   },
   "identity": {
