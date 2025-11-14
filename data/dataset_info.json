@@ -34,6 +34,24 @@
       "history": "history"
     }
   },
+  "en-bridge-sw-DeepSeek-R1-Distill-Qwen-32B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B/token-budget/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-DeepSeek-R1-Distill-Qwen-32B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B/token-budget/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-sw-QwQ-32B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/QwQ-32B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -45,6 +63,24 @@
   },
   "parallel-prompts-sw-QwQ-32B-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/QwQ-32B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-QwQ-32B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/QwQ-32B/token-budget/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-QwQ-32B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/QwQ-32B/token-budget/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -70,6 +106,24 @@
       "history": "history"
     }
   },
+  "en-bridge-sw-DeepSeek-R1-Distill-Qwen-14B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B/token-budget/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-DeepSeek-R1-Distill-Qwen-14B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B/token-budget/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-sw-DeepSeek-R1-Distill-Qwen-7B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -81,6 +135,24 @@
   },
   "parallel-prompts-sw-DeepSeek-R1-Distill-Qwen-7B-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-DeepSeek-R1-Distill-Qwen-7B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/token-budget/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-DeepSeek-R1-Distill-Qwen-7B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/token-budget/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -124,6 +196,24 @@
       "history": "history"
     }
   },
+  "en-bridge-sw-DeepSeek-R1-Distill-Llama-8B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/token-budget/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-DeepSeek-R1-Distill-Llama-8B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/token-budget/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-sw-Phi-4-mini-reasoning-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -142,6 +232,24 @@
       "history": "history"
     }
   },
+  "en-bridge-sw-Phi-4-mini-reasoning-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/Phi-4-mini-reasoning/token-budget/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-Phi-4-mini-reasoning-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/Phi-4-mini-reasoning/token-budget/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-sw-Llama-3.1-Nemotron-Nano-8B-v1-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Llama-3.1-Nemotron-Nano-8B-v1/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -153,6 +261,24 @@
   },
   "parallel-prompts-sw-Llama-3.1-Nemotron-Nano-8B-v1-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Llama-3.1-Nemotron-Nano-8B-v1/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-Llama-3.1-Nemotron-Nano-8B-v1-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/Llama-3.1-Nemotron-Nano-8B-v1/token-budget/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "en-bridge-sw-Llama-3.1-Nemotron-Nano-8B-v1-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/Llama-3.1-Nemotron-Nano-8B-v1/token-budget/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
