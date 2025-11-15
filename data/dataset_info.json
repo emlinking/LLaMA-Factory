@@ -53,7 +53,7 @@
     }
   },
   "parallel-prompts-sw-Qwen3-4B-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen3-4B/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -62,7 +62,7 @@
     }
   },
   "parallel-prompts-sw-Qwen3-4B-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen3-4B/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -72,6 +72,24 @@
   },
   "parallel-prompts-sw-QwQ-32B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/QwQ-32B/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-sw-Qwen3-30B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen/Qwen3-30B-A3B-Thinking-2507/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-sw-Qwen3-30B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen/Qwen3-30B-A3B-Thinking-2507/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -196,8 +214,8 @@
       "history": "history"
     }
   },
-  "parallel-prompts-sw-Granite-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Granite/train/data-00000-of-00001.arrow",
+  "parallel-prompts-sw-granite-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/granite-4.0-h-tiny/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -205,8 +223,8 @@
       "history": "history"
     }
   },
-  "parallel-prompts-sw-Granite-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Granite/val/data-00000-of-00001.arrow",
+  "parallel-prompts-sw-granite-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/granite-4.0-h-tiny/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
