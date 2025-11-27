@@ -232,6 +232,42 @@
       "history": "history"
     }
   },
+  "nativ-langbridge-sw-DeepSeek-R1-Distill-Qwen-7B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/nativ-langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "nativ-langbridge-sw-DeepSeek-R1-Distill-Qwen-7B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/nativ-langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "csw-sw-DeepSeek-R1-Distill-Qwen-7B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/csw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "csw-sw-DeepSeek-R1-Distill-Qwen-7B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/csw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-sw-gemma-3-4b-it-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/gemma-3-4b-it/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -304,6 +340,24 @@
       "history": "history"
     }
   },
+  "nativ-langbridge-sw-DeepSeek-R1-Distill-Llama-8B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/nativ-langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "nativ-langbridge-sw-DeepSeek-R1-Distill-Llama-8B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/nativ-langbridge/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-sw-Phi-4-mini-reasoning-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -333,6 +387,24 @@
   },
   "en-bridge-sw-Phi-4-mini-reasoning-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "nativ-langbridge-sw-Phi-4-mini-reasoning-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/nativ-langbridge/sw/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "nativ-langbridge-sw-Phi-4-mini-reasoning-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/nativ-langbridge/sw/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
