@@ -124,6 +124,24 @@
       "history": "history"
     }
   },
+  "random-csw-sw-Qwen3-4B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/random-csw/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "random-csw-sw-Qwen3-4B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/random-csw/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-sw-QwQ-32B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/QwQ-32B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -359,7 +377,7 @@
     }
   },
   "random-csw-sw-DeepSeek-R1-Distill-Llama-8B-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/random-csw/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/random-csw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -368,7 +386,7 @@
     }
   },
   "random-csw-sw-DeepSeek-R1-Distill-Llama-8B-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/random-csw/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/random-csw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
