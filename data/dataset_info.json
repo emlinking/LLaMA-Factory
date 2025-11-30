@@ -502,6 +502,24 @@
       "history": "history"
     }
   },
+  "csw-ru-DeepSeek-R1-Distill-Qwen-7B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/csw/ru/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "csw-ru-DeepSeek-R1-Distill-Qwen-7B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/csw/ru/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "nativ-langbridge-ru-Qwen3-4B-Thinking-2507-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/nativlang/ru/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
     "columns (optional)": {
