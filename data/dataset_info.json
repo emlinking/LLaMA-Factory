@@ -727,7 +727,7 @@
     "history": "history"
   }
   },
-  "parallel-prompts-ru-Phi-4-mini-reasoning--val": {
+  "parallel-prompts-ru-Phi-4-mini-reasoning-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/ru/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
