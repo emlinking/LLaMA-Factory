@@ -790,6 +790,24 @@
       "history": "history"
     }
   },
+  "mt-ms-DeepSeek-R1-Distill-Llama-8B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "mt-ms-DeepSeek-R1-Distill-Llama-8B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-sw-Phi-4-mini-reasoning-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
