@@ -70,7 +70,7 @@
       "history": "history"
     }
   },
-    "parallel-prompts-ms-Qwen3-4B-train": {
+  "parallel-prompts-ms-Qwen3-4B-train": {
     "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
@@ -81,6 +81,24 @@
   },
   "parallel-prompts-ms-Qwen3-4B-val": {
     "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-am-Qwen3-4B-train": {
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-am-Qwen3-4B-val": {
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
