@@ -431,7 +431,7 @@
     }
   },
   "parallel-prompts-sw-DeepSeek-R1-Distill-Qwen-7B-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -440,7 +440,7 @@
     }
   },
   "parallel-prompts-sw-DeepSeek-R1-Distill-Qwen-7B-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
