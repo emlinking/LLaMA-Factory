@@ -1079,7 +1079,7 @@
     }
   },
   "parallel-prompts-sw-Phi-4-mini-reasoning-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -1106,7 +1106,7 @@
     }
   },
   "parallel-prompts-sw-Phi-4-mini-reasoning-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
