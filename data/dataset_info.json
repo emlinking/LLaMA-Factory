@@ -53,7 +53,7 @@
     }
   },
   "parallel-prompts-sw-Qwen3-4B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -62,7 +62,7 @@
     }
   },
   "parallel-prompts-sw-Qwen3-4B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -70,8 +70,8 @@
       "history": "history"
     }
   },
-  "parallel-prompts-ms-Qwen3-4B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
+  "parallel-prompts-ne-Qwen3-4B-train": {
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ne/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -79,62 +79,8 @@
       "history": "history"
     }
   },
-  "parallel-prompts-ms-Qwen3-4B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-am-Qwen3-4B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-am-Qwen3-4B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ig-Qwen3-4B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ig/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ig-Qwen3-4B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ig/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-yo-Qwen3-4B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-yo-Qwen3-4B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
+  "parallel-prompts-ne-Qwen3-4B-val": {
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ne/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -431,7 +377,7 @@
     }
   },
   "parallel-prompts-sw-DeepSeek-R1-Distill-Qwen-7B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -440,79 +386,7 @@
     }
   },
   "parallel-prompts-sw-DeepSeek-R1-Distill-Qwen-7B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ms-DeepSeek-R1-Distill-Qwen-7B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ms-DeepSeek-R1-Distill-Qwen-7B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-am-DeepSeek-R1-Distill-Qwen-7B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-am-DeepSeek-R1-Distill-Qwen-7B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ig-DeepSeek-R1-Distill-Qwen-7B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ig/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ig-DeepSeek-R1-Distill-Qwen-7B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ig/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-yo-DeepSeek-R1-Distill-Qwen-7B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-yo-DeepSeek-R1-Distill-Qwen-7B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -603,24 +477,6 @@
   },
   "mt-sw-DeepSeek-R1-Distill-Qwen-7B-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-   "mt-ms-DeepSeek-R1-Distill-Qwen-7B-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/ms/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "mt-ms-DeepSeek-R1-Distill-Qwen-7B-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/ms/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -791,7 +647,7 @@
     }
   },
   "parallel-prompts-sw-DeepSeek-R1-Distill-Llama-8B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -800,79 +656,7 @@
     }
   },
   "parallel-prompts-sw-DeepSeek-R1-Distill-Llama-8B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-am-DeepSeek-R1-Distill-Llama-8B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-am-DeepSeek-R1-Distill-Llama-8B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ms-DeepSeek-R1-Distill-Llama-8B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ms-DeepSeek-R1-Distill-Llama-8B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ig-DeepSeek-R1-Distill-Llama-8B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ig/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ig-DeepSeek-R1-Distill-Llama-8B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ig/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-yo-DeepSeek-R1-Distill-Llama-8B-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-yo-DeepSeek-R1-Distill-Llama-8B-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -1079,25 +863,7 @@
     }
   },
   "parallel-prompts-sw-Phi-4-mini-reasoning-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ms-Phi-4-mini-reasoning-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ms-Phi-4-mini-reasoning-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ms/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -1106,61 +872,7 @@
     }
   },
   "parallel-prompts-sw-Phi-4-mini-reasoning-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-am-Phi-4-mini-reasoning-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-am-Phi-4-mini-reasoning-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/am/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ig-Phi-4-mini-reasoning-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ig/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-ig-Phi-4-mini-reasoning-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/ig/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-yo-Phi-4-mini-reasoning-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
-    "columns (optional)": {
-      "prompt": "instruction",
-      "query": "input",
-      "response": "output",
-      "history": "history"
-    }
-  },
-  "parallel-prompts-yo-Phi-4-mini-reasoning-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
