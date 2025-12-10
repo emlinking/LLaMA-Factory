@@ -862,6 +862,24 @@
       "history": "history"
     }
   },
+  "parallel-prompts-yo-DeepSeek-R1-Distill-Llama-8B-train": {
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-yo-DeepSeek-R1-Distill-Llama-8B-val": {
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/yo/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "random-csw-sw-DeepSeek-R1-Distill-Llama-8B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/random-csw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
