@@ -53,7 +53,7 @@
     }
   },
   "parallel-prompts-sw-Qwen3-4B-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/Qwen/Qwen3-4B-Thinking-2507/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -62,7 +62,7 @@
     }
   },
   "parallel-prompts-sw-Qwen3-4B-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
+    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/sw/Qwen/Qwen3-4B-Thinking-2507/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
