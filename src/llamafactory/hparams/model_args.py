@@ -174,6 +174,10 @@ class BaseModelArguments:
         default=True,
         metadata={"help": "Whether or not to use KV cache in generation."},
     )
+    use_v1_kernels: bool = field(
+        default=False,
+        metadata={"help": "Whether or not to use high-performance kernels in training."},
+    )
     infer_dtype: Literal["auto", "float16", "bfloat16", "float32"] = field(
         default="auto",
         metadata={"help": "Data type for model weights and activations at inference."},
@@ -485,7 +489,9 @@ class KTransformersArguments:
     )
     kt_optimize_rule: Optional[str] = field(
         default=None,
-        metadata={"help": "Path To The KTransformers Optimize Rule; See https://github.com/kvcache-ai/ktransformers/."},
+        metadata={
+            "help": "Path To The KTransformers Optimize Rule; See https://github.com/kvcache-ai/ktransformers/."
+        },
     )
     cpu_infer: Optional[int] = field(
         default=32,
@@ -517,9 +523,16 @@ class KTransformersArguments:
         metadata={"help": "Force-Think Toggle For The KT Engine."},
     )
 
+
 @dataclass
 class ModelArguments(
-    SGLangArguments, VllmArguments, KTransformersArguments, ExportArguments, ProcessorArguments, QuantizationArguments, BaseModelArguments
+    SGLangArguments,
+    VllmArguments,
+    KTransformersArguments,
+    ExportArguments,
+    ProcessorArguments,
+    QuantizationArguments,
+    BaseModelArguments,
 ):
     r"""Arguments pertaining to which model/config/tokenizer we are going to fine-tune or infer.
 

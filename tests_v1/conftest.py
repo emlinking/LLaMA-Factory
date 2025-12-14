@@ -12,16 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from ..config.model_args import ModelArguments
-from ..extras.types import Model, Processor
+import pytest
+from pytest import Config, Item
+
+from llamafactory.v1.utils.packages import is_transformers_version_greater_than
 
 
-class ModelEngine:
-    def __init__(self, model_args: ModelArguments) -> None:
-        self.args = model_args
+def pytest_collection_modifyitems(config: Config, items: list[Item]):
+    if is_transformers_version_greater_than("4.57.0"):
+        return
 
-    def get_model(self) -> Model:
-        pass
+    skip_bc = pytest.mark.skip(reason="Skip backward compatibility tests")
 
-    def get_processor(self) -> Processor:
-        pass
+    for item in items:
+        if "tests_v1" in str(item.fspath):
+            item.add_marker(skip_bc)
