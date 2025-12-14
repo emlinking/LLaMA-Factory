@@ -1,4 +1,22 @@
-{"parallel-prompts-ms-openai-gpt-oss-20b-train": {
+{"parallel-prompts-ms-ibm-granite-granite-4.0-h-tiny-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/ibm-granite/granite-4.0-h-tiny/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-ms-ibm-granite-granite-4.0-h-tiny-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/ibm-granite/granite-4.0-h-tiny/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-ms-openai-gpt-oss-20b-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/openai/gpt-oss-20b/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
