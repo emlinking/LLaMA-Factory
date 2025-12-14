@@ -1,4 +1,22 @@
-{"parallel-prompts-ms-Qwen3-8B-train": {
+{"parallel-prompts-ms-openai-gpt-oss-20b-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/openai/gpt-oss-20b/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-ms-openai-gpt-oss-20b-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/openai/gpt-oss-20b/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-ms-Qwen3-8B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/Qwen/Qwen3-8B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
