@@ -916,6 +916,24 @@
       "history": "history"
     }
   },
+  "parallel-prompts-ne-granite-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ne/ibm-granite/granite-4.0-h-tiny/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-ne-granite-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ne/ibm-granite/granite-4.0-h-tiny/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-am-granite-4.0-h-tiny-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/am/ibm-granite/granite-4.0-h-tiny/train/data-00000-of-00001.arrow",
     "columns (optional)": {
