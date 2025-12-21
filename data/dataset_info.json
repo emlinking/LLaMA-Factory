@@ -1384,6 +1384,24 @@
       "history": "history"
     }
   },
+  "parallel-prompts-yo-gpt-oss-20b-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/yo/openai/gpt-oss-20b/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-yo-gpt-oss-20b-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/yo/openai/gpt-oss-20b/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "parallel-prompts-yo-granite-4.0-h-tiny-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/yo/ibm-granite/granite-4.0-h-tiny/train/data-00000-of-00001.arrow",
     "columns (optional)": {
