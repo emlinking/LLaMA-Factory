@@ -1,4 +1,22 @@
-{"parallel-prompts-ms-ibm-granite-granite-4.0-h-tiny-train": {
+{"parallel-prompts-yo-llama-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/yo/meta-llama/Llama-4-Scout-17B-16E-Instruct/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-yo-llama-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/yo/meta-llama/Llama-4-Scout-17B-16E-Instruct/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-ms-ibm-granite-granite-4.0-h-tiny-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/ibm-granite/granite-4.0-h-tiny/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
