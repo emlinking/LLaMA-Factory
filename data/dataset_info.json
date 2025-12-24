@@ -664,6 +664,24 @@
       "history": "history"
     }
   },
+  "parallel-prompts-ms-llama-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/meta-llama/Llama-4-Scout-17B-16E-Instruct/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-ms-llama-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/meta-llama/Llama-4-Scout-17B-16E-Instruct/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "mt-yo-llama-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/yo/meta-llama/Llama-4-Scout-17B-16E-Instruct/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -1395,6 +1413,15 @@
   },
   "parallel-prompts-sw-gemma-3-4b-it-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel_prompts/sw/gemma-3-4b-it/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "mt-sw-granite-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/ms/ibm-granite/granite-4.0-h-tiny/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
