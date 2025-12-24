@@ -502,6 +502,24 @@
       "history": "history"
     }
   },
+  "mt-sw-Qwen3-8B-train-v4": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/sw/Qwen/Qwen3-8B/v4/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "mt-sw-Qwen3-8B-val-v4": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/sw/Qwen/Qwen3-8B/v4/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "mt-sw-Qwen3-8B-train-v3": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/sw/Qwen/Qwen3-8B/v3/train/data-00000-of-00001.arrow",
     "columns (optional)": {
