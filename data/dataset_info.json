@@ -1654,6 +1654,24 @@
       "history": "history"
     }
   },
+  "native-bridge-ms-gpt-oss-20b-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/ms/openai/gpt-oss-20b/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "native-bridge-ms-gpt-oss-20b-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/ms/openai/gpt-oss-20b/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "mt-ms-gpt-oss-20b-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/ms/gpt-oss-20b/train/data-00000-of-00001.arrow",
     "columns (optional)": {
