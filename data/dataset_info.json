@@ -2086,8 +2086,8 @@
       "history": "history"
     }
   },
-  "parallel-prompts-vi-Phi-4-mini-reasoning-train": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/vi/Phi-4-mini-reasoning/train/data-00000-of-00001.arrow",
+  "strategic-csw-ms-phi-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/microsoft/Phi-4-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -2095,8 +2095,8 @@
       "history": "history"
     }
   },
-  "parallel-prompts-vi-Phi-4-mini-reasoning-val": {
-    "file_name": "/home/elealin/projects/code-switched-reasoning/data/parallel-prompts/vi/Phi-4-mini-reasoning/val/data-00000-of-00001.arrow",
+  "strategic-csw-ms-phi-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/microsoft/Phi-4-reasoning/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
