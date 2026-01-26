@@ -2050,6 +2050,24 @@
       "history": "history"
     }
   },
+  "mt-hi-phi-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/hi/microsoft/Phi-4-reasoning/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "mt-hi-phi-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/hi/microsoft/Phi-4-reasoning/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "mt-ms-phi-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/mt/ms/microsoft/Phi-4-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
