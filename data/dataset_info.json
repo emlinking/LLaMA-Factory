@@ -2014,6 +2014,24 @@
       "history": "history"
     }
   },
+  "native-bridge-hi-Phi-4-Reasoning-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/hi/microsoft/Phi-4-reasoning/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "native-bridge-hi-Phi-4-Reasoning-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/hi/microsoft/Phi-4-reasoning/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "langbridge-id-Phi-4-reasoning-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/id/microsoft/Phi-4-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
