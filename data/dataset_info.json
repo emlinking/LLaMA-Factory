@@ -1,4 +1,22 @@
-{"synthetic-csw-ig-Phi-4-reasoning-train": {
+{"native-bridge-ig-Qwen3-8B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/ig/Qwen/Qwen3-8B/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "native-bridge-ig-Qwen3-8B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/ig/Qwen/Qwen3-8B/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "synthetic-csw-ig-Phi-4-reasoning-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/ig/microsoft/Phi-4-reasoning/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
