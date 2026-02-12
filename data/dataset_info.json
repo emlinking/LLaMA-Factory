@@ -1,4 +1,22 @@
-{"strategic-csw-yo-Qwen3-8B-train": {
+{"strategic-csw-yo-phi-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/yo/microsoft/Phi-4-reasoning/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "strategic-csw-yo-phi-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/yo/microsoft/Phi-4-reasoning/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "strategic-csw-yo-Qwen3-8B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/yo/Qwen/Qwen3-8B/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
