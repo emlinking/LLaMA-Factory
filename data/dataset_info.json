@@ -1,4 +1,22 @@
-{"native-bridge-yo-phi-4-reasoning-train": {
+{"langbridge-am-Qwen3-8B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/am/Qwen/Qwen3-8B/v6/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "langbridge-am-Qwen3-8B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/am/Qwen/Qwen3-8B/v6/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "native-bridge-yo-phi-4-reasoning-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/yo/microsoft/Phi-4-reasoning/v6/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
