@@ -71,7 +71,7 @@
     }
   },
   "langbridge-am-Phi-4-reasoning-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/am/microsoft/Phi-4-reasoning/v6/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/am/microsoft/Phi-4-reasoning/v9/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -80,7 +80,7 @@
     }
   },
   "langbridge-am-Phi-4-reasoning-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/am/microsoft/Phi-4-reasoning/v6/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/am/microsoft/Phi-4-reasoning/v9/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
