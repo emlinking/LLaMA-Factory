@@ -1,4 +1,22 @@
-{"synthetic-csw-am-Phi-4-reasoning-train": {
+{"parallel-prompts-ms-DeepSeek-R1-Distill-Llama-8B-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v9/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "parallel-prompts-ms-DeepSeek-R1-Distill-Llama-8B-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v9/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "synthetic-csw-am-Phi-4-reasoning-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/am/microsoft/Phi-4-reasoning/v9/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
