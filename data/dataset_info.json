@@ -1,4 +1,4 @@
-{"parallel-prompts-am-deepseek-ai/DeepSeek-R1-Distill-Llama-8B-train": {
+{"parallel-prompts-am-DeepSeek-R1-Distill-Llama-8B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/am/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v9/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
@@ -7,7 +7,7 @@
       "history": "history"
     }
   },
-  "parallel-prompts-am-deepseek-ai/DeepSeek-R1-Distill-Llama-8B-val": {
+  "parallel-prompts-am-DeepSeek-R1-Distill-Llama-8B-val": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/parallel-prompts/am/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v9/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
