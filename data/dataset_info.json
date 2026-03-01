@@ -323,7 +323,7 @@
     }
   },
   "native-bridge-am-Qwen3-8B-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/am/Qwen/Qwen3-8B/v6/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/am/Qwen/Qwen3-8B/v10/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -332,7 +332,7 @@
     }
   },
   "native-bridge-am-Qwen3-8B-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/am/Qwen/Qwen3-8B/v6/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/am/Qwen/Qwen3-8B/v10/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
