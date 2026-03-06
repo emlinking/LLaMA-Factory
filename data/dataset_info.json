@@ -1,4 +1,22 @@
-{"synthetic-csw-ms-llama-train": {
+{"synthetic-csw-hi-llama-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/hi/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "synthetic-csw-hi-llama-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/hi/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "synthetic-csw-ms-llama-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
