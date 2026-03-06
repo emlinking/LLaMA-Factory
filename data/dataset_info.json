@@ -1,4 +1,22 @@
-{"native-bridge-id-DeepSeek-R1-Distill-Llama-8B-train": {
+{"langbridge-yo-llama-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/yo/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "langbridge-yo-llama-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/yo/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "native-bridge-id-DeepSeek-R1-Distill-Llama-8B-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/id/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
@@ -737,7 +755,7 @@
     }
   },
   "langbridge-yo-phi-4-reasoning-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/yo/microsoft/Phi-4-reasoning/v6/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/yo/microsoft/Phi-4-reasoning/v10/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -746,7 +764,7 @@
     }
   },
   "langbridge-yo-phi-4-reasoning-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/yo/microsoft/Phi-4-reasoning/v6/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/yo/microsoft/Phi-4-reasoning/v10/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
