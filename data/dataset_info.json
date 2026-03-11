@@ -1,4 +1,22 @@
-{"native-bridge-hi-llama-train": {
+{"native-bridge-ms-llama-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "native-bridge-ms-llama-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/ms/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "native-bridge-hi-llama-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/native-bridge/hi/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
