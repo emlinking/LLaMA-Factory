@@ -1349,7 +1349,7 @@
     }
   },
   "strategic-csw-id-Qwen3-8B-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/id/Qwen/Qwen3-8B/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/id/Qwen/Qwen3-8B/v12/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -1358,7 +1358,7 @@
     }
   },
   "strategic-csw-id-Qwen3-8B-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/id/Qwen/Qwen3-8B/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/id/Qwen/Qwen3-8B/v12/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
