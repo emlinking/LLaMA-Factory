@@ -251,7 +251,7 @@
     }
   },
   "synthetic-csw-sw-DeepSeek-R1-Distill-Llama-8B-train": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/train/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v13/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
@@ -260,7 +260,7 @@
     }
   },
   "synthetic-csw-sw-DeepSeek-R1-Distill-Llama-8B-val": {
-    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v10/val/data-00000-of-00001.arrow",
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/sw/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v13/val/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
       "query": "input",
