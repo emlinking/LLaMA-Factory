@@ -14,7 +14,7 @@
 
 import os
 from collections import OrderedDict, defaultdict
-from enum import Enum, unique
+from enum import StrEnum, unique
 
 from peft.utils import SAFETENSORS_WEIGHTS_NAME as SAFE_ADAPTER_WEIGHTS_NAME
 from peft.utils import WEIGHTS_NAME as ADAPTER_WEIGHTS_NAME
@@ -65,7 +65,29 @@ MCA_SUPPORTED_MODELS = {
     "qwen2_vl",
     "qwen2_5_vl",
     "qwen3_vl",
+    "qwen3_vl_moe",
     "qwen3",
+    "qwen3_moe",
+    "qwen3_next",
+    "qwen3_5",
+    "qwen3_5_moe",
+    "qwen3_5_moe_text",
+    "qwen3_5_text",
+}
+
+# Text LLM model_types supported by the Megatron Bridge PT/SFT path (gpt_step).
+# Multimodal / audio / omni architectures are excluded in v0.
+MEGATRON_BRIDGE_SUPPORTED_MODELS = {
+    "deepseek_v3",
+    "deepseek_v4",
+    "llama",
+    "mistral",
+    "qwen2",
+    "qwen3",
+    "qwen3_5",
+    "qwen3_5_moe",
+    "qwen3_5_moe_text",
+    "qwen3_5_text",
     "qwen3_moe",
     "qwen3_next",
 }
@@ -73,6 +95,20 @@ MCA_SUPPORTED_MODELS = {
 METHODS = ["full", "freeze", "lora", "oft"]
 
 MOD_SUPPORTED_MODELS = {"bloom", "falcon", "gemma", "llama", "mistral", "mixtral", "phi", "starcoder2"}
+
+MROPE_MODELS = {
+    "glm4v",
+    "glm_ocr",
+    "Keye",
+    "qwen2_vl",
+    "qwen2_5_vl",
+    "qwen2_5_omni_thinker",
+    "qwen3_omni_moe_thinker",
+    "qwen3_vl",
+    "qwen3_vl_moe",
+    "qwen3_5",
+    "qwen3_5_moe",
+}
 
 MULTIMODAL_SUPPORTED_MODELS = set()
 
@@ -110,7 +146,7 @@ V_HEAD_WEIGHTS_NAME = "value_head.bin"
 V_HEAD_SAFE_WEIGHTS_NAME = "value_head.safetensors"
 
 
-class AttentionFunction(str, Enum):
+class AttentionFunction(StrEnum):
     AUTO = "auto"
     DISABLED = "disabled"
     SDPA = "sdpa"
@@ -118,21 +154,20 @@ class AttentionFunction(str, Enum):
     FA3 = "fa3"
 
 
-class EngineName(str, Enum):
+class EngineName(StrEnum):
     HF = "huggingface"
     VLLM = "vllm"
     SGLANG = "sglang"
-    KT = "ktransformers"
 
 
-class DownloadSource(str, Enum):
+class DownloadSource(StrEnum):
     DEFAULT = "hf"
     MODELSCOPE = "ms"
     OPENMIND = "om"
 
 
 @unique
-class QuantizationMethod(str, Enum):
+class QuantizationMethod(StrEnum):
     r"""Borrowed from `transformers.utils.quantization_config.QuantizationMethod`."""
 
     BNB = "bnb"
@@ -146,7 +181,7 @@ class QuantizationMethod(str, Enum):
     FP8 = "fp8"
 
 
-class RopeScaling(str, Enum):
+class RopeScaling(StrEnum):
     LINEAR = "linear"
     DYNAMIC = "dynamic"
     YARN = "yarn"
@@ -850,6 +885,37 @@ register_model_group(
 
 register_model_group(
     models={
+        "Gemma-4-26B-A4B-Thinking": {
+            DownloadSource.DEFAULT: "google/gemma-4-26B-A4B-it",
+        },
+        "Gemma-4-31B-Thinking": {
+            DownloadSource.DEFAULT: "google/gemma-4-31B-it",
+        },
+    },
+    template="gemma4",
+    multimodal=True,
+)
+
+
+register_model_group(
+    models={
+        "Gemma-4-E2B-Thinking": {
+            DownloadSource.DEFAULT: "google/gemma-4-E2B-it",
+        },
+        "Gemma-4-E4B-Thinking": {
+            DownloadSource.DEFAULT: "google/gemma-4-E4B-it",
+        },
+        "Gemma-4-12B-Thinking": {
+            DownloadSource.DEFAULT: "google/gemma-4-12B-it",
+        },
+    },
+    template="gemma4n",
+    multimodal=True,
+)
+
+
+register_model_group(
+    models={
         "GLM-4-9B": {
             DownloadSource.DEFAULT: "zai-org/glm-4-9b",
             DownloadSource.MODELSCOPE: "ZhipuAI/glm-4-9b",
@@ -935,6 +1001,29 @@ register_model_group(
         },
     },
     template="glm4_5v",
+    multimodal=True,
+)
+
+
+register_model_group(
+    models={
+        "GLM-4.7-Flash": {
+            DownloadSource.DEFAULT: "zai-org/GLM-4.7-Flash",
+            DownloadSource.MODELSCOPE: "ZhipuAI/GLM-4.7-Flash",
+        },
+    },
+    template="glm4_7",
+)
+
+
+register_model_group(
+    models={
+        "GLM-OCR": {
+            DownloadSource.DEFAULT: "zai-org/GLM-OCR",
+            DownloadSource.MODELSCOPE: "ZhipuAI/GLM-OCR",
+        },
+    },
+    template="glm_ocr",
     multimodal=True,
 )
 
@@ -1180,12 +1269,45 @@ register_model_group(
 
 register_model_group(
     models={
+        "Hy-MT2-1.8B-Instruct": {
+            DownloadSource.DEFAULT: "tencent/Hy-MT2-1.8B",
+            DownloadSource.MODELSCOPE: "Tencent-Hunyuan/Hy-MT2-1.8B",
+        },
+    },
+    template="hy_dense_1_8b",
+)
+
+
+register_model_group(
+    models={
+        "Hy-MT2-7B-Instruct": {
+            DownloadSource.DEFAULT: "tencent/Hy-MT2-7B",
+            DownloadSource.MODELSCOPE: "Tencent-Hunyuan/Hy-MT2-7B",
+        },
+    },
+    template="hy_dense_7b",
+)
+
+
+register_model_group(
+    models={
         "HY-MT1.5-1.8B-Instruct": {
             DownloadSource.DEFAULT: "tencent/HY-MT1.5-1.8B",
             DownloadSource.MODELSCOPE: "Tencent-Hunyuan/HY-MT1.5-1.8B",
         },
     },
     template="hunyuan_small",
+)
+
+
+register_model_group(
+    models={
+        "Hy3-Preview": {
+            DownloadSource.DEFAULT: "tencent/Hy3-preview",
+            DownloadSource.MODELSCOPE: "tencent/Hy3-preview",
+        },
+    },
+    template="hy3",
 )
 
 
@@ -1836,9 +1958,24 @@ register_model_group(
 
 register_model_group(
     models={
+        "MiniCPM5-1B-Chat": {
+            DownloadSource.DEFAULT: "openbmb/MiniCPM5-1B",
+            DownloadSource.MODELSCOPE: "OpenBMB/MiniCPM5-1B",
+        },
+    },
+    template="minicpm5",
+)
+
+
+register_model_group(
+    models={
         "MiniCPM-o-2.6": {
             DownloadSource.DEFAULT: "openbmb/MiniCPM-o-2_6",
             DownloadSource.MODELSCOPE: "OpenBMB/MiniCPM-o-2_6",
+        },
+        "MiniCPM-o-4_5": {
+            DownloadSource.DEFAULT: "openbmb/MiniCPM-o-4_5",
+            DownloadSource.MODELSCOPE: "OpenBMB/MiniCPM-o-4_5",
         },
     },
     template="minicpm_o",
@@ -1862,6 +1999,18 @@ register_model_group(
         },
     },
     template="minicpm_v",
+    multimodal=True,
+)
+
+
+register_model_group(
+    models={
+        "MiniCPM-V-4.6": {
+            DownloadSource.DEFAULT: "openbmb/MiniCPM-V-4_6",
+            DownloadSource.MODELSCOPE: "OpenBMB/MiniCPM-V-4_6",
+        },
+    },
+    template="minicpm_v_4_6",
     multimodal=True,
 )
 
@@ -2048,6 +2197,17 @@ register_model_group(
         },
     },
     template="moonlight",
+)
+
+
+register_model_group(
+    models={
+        "MOSS-VL-Instruct-0708": {
+            DownloadSource.DEFAULT: "OpenMOSS-Team/MOSS-VL-Instruct-0708",
+        },
+    },
+    template="moss_vl",
+    multimodal=True,
 )
 
 
@@ -2784,6 +2944,97 @@ register_model_group(
 
 register_model_group(
     models={
+        "Qwen3.5-0.8B-Base": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-0.8B-Base",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-0.8B-Base",
+        },
+        "Qwen3.5-2B-Base": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-2B-Base",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-2B-Base",
+        },
+        "Qwen3.5-4B-Base": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-4B-Base",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-4B-Base",
+        },
+        "Qwen3.5-9B-Base": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-9B-Base",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-9B-Base",
+        },
+        "Qwen3.5-35B-A3B-Base": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-35B-A3B-Base",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-35B-A3B-Base",
+        },
+        "Qwen3.5-0.8B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-0.8B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-0.8B",
+        },
+        "Qwen3.5-2B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-2B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-2B",
+        },
+        "Qwen3.5-4B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-4B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-4B",
+        },
+        "Qwen3.5-9B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-9B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-9B",
+        },
+        "Qwen3.5-27B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-27B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-27B",
+        },
+        "Qwen3.5-35B-A3B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-35B-A3B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-35B-A3B",
+        },
+        "Qwen3.5-122B-A10B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-122B-A10B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-122B-A10B",
+        },
+        "Qwen3.5-397B-A17B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.5-397B-A17B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.5-397B-A17B",
+        },
+    },
+    template="qwen3_5",
+    multimodal=True,
+)
+
+
+register_model_group(
+    models={
+        "Qwen3.8-27B": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.8-27B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.8-27B",
+        },
+        "Qwen3.8-27B-FP8": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.8-27B-FP8",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.8-27B-FP8",
+        },
+    },
+    template="qwen3_8",
+    multimodal=True,
+)
+
+
+register_model_group(
+    models={
+        "Qwen3.8-2.4T-A95B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.8-2.4T-A95B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.8-2.4T-A95B",
+        },
+        "Qwen3.8-2.4T-A95B-Thinking-FP8": {
+            DownloadSource.DEFAULT: "Qwen/Qwen3.8-2.4T-A95B-FP8",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen3.8-2.4T-A95B-FP8",
+        },
+    },
+    template="qwen3_8",
+)
+
+
+register_model_group(
+    models={
         "Qwen2-Audio-7B": {
             DownloadSource.DEFAULT: "Qwen/Qwen2-Audio-7B",
             DownloadSource.MODELSCOPE: "Qwen/Qwen2-Audio-7B",
@@ -3158,12 +3409,13 @@ register_model_group(
             DownloadSource.DEFAULT: "Tele-AI/TeleChat2-7B",
             DownloadSource.MODELSCOPE: "TeleAI/TeleChat2-7B",
         },
-        "TeleChat2-35B-Chat": {
-            DownloadSource.MODELSCOPE: "TeleAI/TeleChat2-35B-Nov",
-        },
         "TeleChat2-115B-Chat": {
             DownloadSource.DEFAULT: "Tele-AI/TeleChat2-115B",
             DownloadSource.MODELSCOPE: "TeleAI/TeleChat2-115B",
+        },
+        "TeleChat2.5-35B-Chat": {
+            DownloadSource.DEFAULT: "Tele-AI/TeleChat2.5-35B",
+            DownloadSource.MODELSCOPE: "TeleAI/TeleChat2-35B-Nov",
         },
     },
     template="telechat2",
@@ -3175,6 +3427,19 @@ register_model_group(
         "VibeThinker-1.5B": {
             DownloadSource.DEFAULT: "WeiboAI/VibeThinker-1.5B",
             DownloadSource.MODELSCOPE: "WeiboAI/VibeThinker-1.5B",
+        },
+    },
+    template="qwen3",
+)
+
+
+# Qwen-AgentWorld: language world model based on Qwen3.5-35B-A3B (MoE).
+# Reference: https://github.com/QwenLM/Qwen-AgentWorld
+register_model_group(
+    models={
+        "Qwen-AgentWorld-35B-A3B-Thinking": {
+            DownloadSource.DEFAULT: "Qwen/Qwen-AgentWorld-35B-A3B",
+            DownloadSource.MODELSCOPE: "Qwen/Qwen-AgentWorld-35B-A3B",
         },
     },
     template="qwen3",
@@ -3377,6 +3642,18 @@ register_model_group(
 
 register_model_group(
     models={
+        "Youtu-VL-4B-Instruct": {
+            DownloadSource.DEFAULT: "tencent/Youtu-VL-4B-Instruct",
+            DownloadSource.MODELSCOPE: "Tencent-YouTu-Research/Youtu-VL-4B-Instruct",
+        },
+    },
+    template="youtu_vl",
+    multimodal=True,
+)
+
+
+register_model_group(
+    models={
         "Yuan2-2B-Chat": {
             DownloadSource.DEFAULT: "IEITYuan/Yuan2-2B-hf",
             DownloadSource.MODELSCOPE: "YuanLLM/Yuan2.0-2B-hf",
@@ -3409,4 +3686,36 @@ register_model_group(
         },
     },
     template="zephyr",
+)
+
+
+register_model_group(
+    models={
+        "Aeva-Flash-Chat": {
+            DownloadSource.DEFAULT: "louzongzhi/Aeva-Flash",
+            DownloadSource.MODELSCOPE: "louzongktsi/Aeva-Flash",
+            DownloadSource.OPENMIND: "louzongzhi/Aeva-Flash",
+        },
+        "Aeva-Air-Chat": {
+            DownloadSource.DEFAULT: "louzongzhi/Aeva-Air",
+            DownloadSource.MODELSCOPE: "louzongktsi/Aeva-Air",
+            DownloadSource.OPENMIND: "louzongzhi/Aeva-Air",
+        },
+        "Aeva-Chat": {
+            DownloadSource.DEFAULT: "louzongzhi/Aeva",
+            DownloadSource.MODELSCOPE: "louzongktsi/Aeva",
+            DownloadSource.OPENMIND: "louzongzhi/Aeva",
+        },
+        "Aeva-Pro-Chat": {
+            DownloadSource.DEFAULT: "louzongzhi/Aeva-Pro",
+            DownloadSource.MODELSCOPE: "louzongktsi/Aeva-Pro",
+            DownloadSource.OPENMIND: "louzongzhi/Aeva-Pro",
+        },
+        "Aeva-Max-Chat": {
+            DownloadSource.DEFAULT: "louzongzhi/Aeva-Max",
+            DownloadSource.MODELSCOPE: "louzongktsi/Aeva-Max",
+            DownloadSource.OPENMIND: "louzongzhi/Aeva-Max",
+        },
+    },
+    template="aeva",
 )

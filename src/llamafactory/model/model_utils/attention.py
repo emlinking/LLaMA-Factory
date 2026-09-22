@@ -57,6 +57,11 @@ def configure_attn_implementation(config: "PretrainedConfig", model_args: "Model
                 "Gemma-2 should use soft-capping attention, while the SDPA attention does not support it."
             )
 
+    if getattr(config, "model_type", None) in ["youtu", "youtu_vl"]:
+        if model_args.flash_attn in (AttentionFunction.AUTO, AttentionFunction.SDPA):
+            logger.warning_rank0("Youtu-VL does not support SDPA, forcing eager attention.")
+            model_args.flash_attn = AttentionFunction.DISABLED
+
     if model_args.flash_attn == AttentionFunction.AUTO:
         return
 
@@ -77,14 +82,33 @@ def configure_attn_implementation(config: "PretrainedConfig", model_args: "Model
             return
 
         requested_attn_implementation = "flash_attention_2"
+    elif model_args.flash_attn == AttentionFunction.FA3:
+        from transformers.utils import is_flash_attn_3_available
+
+        if not is_flash_attn_3_available():
+            logger.warning_rank0("FlashAttention-3 is not installed.")
+            return
+
+        requested_attn_implementation = "flash_attention_3"
     else:
         raise NotImplementedError(f"Unknown attention type: {model_args.flash_attn}")
 
     if getattr(config, "model_type", None) == "internlm2":  # special case for custom models
         setattr(config, "attn_implementation", requested_attn_implementation)
+    elif getattr(config, "model_type", None) == "kimi_k25":
+        setattr(config, "_attn_implementation", requested_attn_implementation)
+        setattr(config.vision_config, "_attn_implementation", requested_attn_implementation)
+        setattr(config.text_config, "_attn_implementation", requested_attn_implementation)
     elif getattr(config, "model_type", None) == "kimi_vl":
         setattr(config.vision_config, "_attn_implementation", requested_attn_implementation)
         setattr(config.text_config, "_attn_implementation", requested_attn_implementation)
+    elif getattr(config, "model_type", None) == "youtu_vl":
+        setattr(config, "attn_implementation", requested_attn_implementation)
+        setattr(config, "_attn_implementation", requested_attn_implementation)
+        if hasattr(config, "vision_config"):
+            setattr(config.vision_config, "_attn_implementation", requested_attn_implementation)
+        if hasattr(config, "text_config"):
+            setattr(config.text_config, "_attn_implementation", requested_attn_implementation)
     else:
         setattr(config, "_attn_implementation", requested_attn_implementation)
 
@@ -97,6 +121,8 @@ def print_attn_implementation(config: "PretrainedConfig") -> None:
 
     if attn_implementation == "flash_attention_2":
         logger.info_rank0("Using FlashAttention-2 for faster training and inference.")
+    elif attn_implementation == "flash_attention_3":
+        logger.info_rank0("Using FlashAttention-3 for faster training and inference.")
     elif attn_implementation == "sdpa":
         logger.info_rank0("Using torch SDPA for faster training and inference.")
     else:

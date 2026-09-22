@@ -18,6 +18,7 @@
 import json
 import os
 import sys
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Optional
 
@@ -33,11 +34,12 @@ from transformers.utils import is_torch_bf16_gpu_available, is_torch_npu_availab
 from ..extras import logging
 from ..extras.constants import CHECKPOINT_NAMES, EngineName
 from ..extras.misc import check_dependencies, check_version, get_current_device, is_env_enabled
-from ..extras.packages import is_mcore_adapter_available, is_transformers_version_greater_than
+from ..extras.packages import is_mcore_adapter_available, is_megatron_bridge_available
 from .data_args import DataArguments
 from .evaluation_args import EvaluationArguments
 from .finetuning_args import FinetuningArguments
 from .generating_args import GeneratingArguments
+from .megatron_bridge_args import MegatronBridgeArguments
 from .model_args import ModelArguments
 from .training_args import RayArguments, TrainingArguments
 
@@ -47,23 +49,64 @@ logger = logging.get_logger(__name__)
 check_dependencies()
 
 
-_TRAIN_ARGS = [ModelArguments, DataArguments, TrainingArguments, FinetuningArguments, GeneratingArguments]
+@dataclass
+class _KTransformersRuntimeArguments:
+    kt_config: dict[str, Any] | None = field(
+        default=None,
+        metadata={"help": "Advanced KTransformers settings used during inference or evaluation."},
+    )
+
+
+_TRAIN_ARGS = [
+    ModelArguments,
+    DataArguments,
+    TrainingArguments,
+    FinetuningArguments,
+    GeneratingArguments,
+]
 _TRAIN_CLS = tuple[ModelArguments, DataArguments, TrainingArguments, FinetuningArguments, GeneratingArguments]
-_INFER_ARGS = [ModelArguments, DataArguments, FinetuningArguments, GeneratingArguments]
+_INFER_ARGS = [ModelArguments, DataArguments, FinetuningArguments, GeneratingArguments, _KTransformersRuntimeArguments]
 _INFER_CLS = tuple[ModelArguments, DataArguments, FinetuningArguments, GeneratingArguments]
-_EVAL_ARGS = [ModelArguments, DataArguments, EvaluationArguments, FinetuningArguments]
+_EVAL_ARGS = [ModelArguments, DataArguments, EvaluationArguments, FinetuningArguments, _KTransformersRuntimeArguments]
 _EVAL_CLS = tuple[ModelArguments, DataArguments, EvaluationArguments, FinetuningArguments]
 
 if is_mcore_adapter_available() and is_env_enabled("USE_MCA"):
     from mcore_adapter import TrainingArguments as McaTrainingArguments
 
-    _TRAIN_MCA_ARGS = [ModelArguments, DataArguments, McaTrainingArguments, FinetuningArguments, GeneratingArguments]
+    _TRAIN_MCA_ARGS = [
+        ModelArguments,
+        DataArguments,
+        McaTrainingArguments,
+        FinetuningArguments,
+        GeneratingArguments,
+    ]
     _TRAIN_MCA_CLS = tuple[
-        ModelArguments, DataArguments, McaTrainingArguments, FinetuningArguments, GeneratingArguments
+        ModelArguments,
+        DataArguments,
+        McaTrainingArguments,
+        FinetuningArguments,
+        GeneratingArguments,
     ]
 else:
     _TRAIN_MCA_ARGS = []
     _TRAIN_MCA_CLS = tuple()
+
+_TRAIN_MBRIDGE_ARGS = [
+    ModelArguments,
+    DataArguments,
+    TrainingArguments,
+    FinetuningArguments,
+    MegatronBridgeArguments,
+    GeneratingArguments,
+]
+_TRAIN_MBRIDGE_CLS = tuple[
+    ModelArguments,
+    DataArguments,
+    TrainingArguments,
+    FinetuningArguments,
+    MegatronBridgeArguments,
+    GeneratingArguments,
+]
 
 
 def read_args(args: dict[str, Any] | list[str] | None = None) -> dict[str, Any] | list[str]:
@@ -83,6 +126,26 @@ def read_args(args: dict[str, Any] | list[str] | None = None) -> dict[str, Any] 
         return sys.argv[1:]
 
 
+def _get_kt_runtime_capacity(
+    data_args: "DataArguments",
+    training_args: "TrainingArguments",
+    finetuning_args: "FinetuningArguments",
+) -> int:
+    r"""Return the largest local token batch submitted to a KT expert."""
+    tokens_per_sample = data_args.cutoff_len
+    if finetuning_args.stage == "sft" and data_args.packing:
+        tokens_per_sample += 1
+    if finetuning_args.stage == "sft" and training_args.do_train:
+        tokens_per_sample = ((tokens_per_sample + 7) // 8) * 8
+
+    local_batch_sizes = [1]
+    if training_args.do_train:
+        local_batch_sizes.append(training_args.per_device_train_batch_size)
+    if training_args.do_eval or training_args.do_predict:
+        local_batch_sizes.append(training_args.per_device_eval_batch_size)
+    return tokens_per_sample * max(local_batch_sizes)
+
+
 def _parse_args(
     parser: "HfArgumentParser", args: dict[str, Any] | list[str] | None = None, allow_extra_keys: bool = False
 ) -> tuple[Any]:
@@ -98,6 +161,52 @@ def _parse_args(
         raise ValueError(f"Some specified arguments are not used by the HfArgumentParser: {unknown_args}")
 
     return tuple(parsed_args)
+
+
+def _verify_trackio_args(training_args: "TrainingArguments") -> None:
+    """Validates Trackio-specific arguments.
+
+    Args:
+        training_args: TrainingArguments instance (not a dictionary)
+    """
+    report_to = training_args.report_to
+    if not report_to:
+        return
+
+    if isinstance(report_to, str):
+        report_to = [report_to]
+
+    if "trackio" not in report_to:
+        return
+
+    # --- Enforce project (required by Trackio) ---
+    if not training_args.project:
+        raise ValueError("`--project` must be specified when using Trackio.")
+
+    # --- Validate trackio_space_id format ---
+    space_id = training_args.trackio_space_id
+    if space_id:
+        if space_id != "trackio" and "/" not in space_id:
+            logger.warning(
+                f"trackio_space_id '{space_id}' should typically be in format "
+                "'org/space' for Hugging Face Spaces deployment."
+            )
+
+    # --- Inform about default project usage ---
+    if training_args.project == "huggingface":
+        logger.info(
+            "Using default project name 'huggingface'. "
+            "Consider setting a custom project name with --project "
+            "for better organization."
+        )
+
+    # --- Validate hub repo privacy flag ---
+    if training_args.hub_private_repo:
+        logger.info("Repository will be created as private on Hugging Face Hub.")
+
+    # --- Recommend run_name for experiment clarity ---
+    if not training_args.run_name:
+        logger.warning("Consider setting --run_name for better experiment tracking clarity.")
 
 
 def _set_transformers_logging() -> None:
@@ -139,10 +248,6 @@ def _verify_model_args(
         if model_args.adapter_name_or_path is not None and len(model_args.adapter_name_or_path) != 1:
             raise ValueError("Quantized model only accepts a single adapter. Merge them first.")
 
-    if data_args.template == "yi" and model_args.use_fast_tokenizer:
-        logger.warning_rank0("We should use slow tokenizer for the Yi models. Change `use_fast_tokenizer` to False.")
-        model_args.use_fast_tokenizer = False
-
 
 def _check_extra_dependencies(
     model_args: "ModelArguments",
@@ -150,7 +255,9 @@ def _check_extra_dependencies(
     training_args: Optional["TrainingArguments"] = None,
 ) -> None:
     if model_args.use_kt:
-        check_version("ktransformers", mandatory=True)
+        check_version("kt-kernel", mandatory=True)
+        check_version("transformers-kt", mandatory=True)
+        check_version("accelerate-kt", mandatory=True)
 
     if model_args.use_unsloth:
         check_version("unsloth", mandatory=True)
@@ -186,11 +293,12 @@ def _check_extra_dependencies(
     if finetuning_args.plot_loss:
         check_version("matplotlib", mandatory=True)
 
+    if finetuning_args.use_megatron_bridge:
+        check_version("megatron-bridge", mandatory=True)
+
     if training_args is not None:
         if training_args.deepspeed:
-            # pin deepspeed version < 0.17 because of https://github.com/deepspeedai/DeepSpeed/issues/7347
             check_version("deepspeed", mandatory=True)
-            check_version("deepspeed>=0.10.0,<=0.16.9")
 
         if training_args.predict_with_generate:
             check_version("jieba", mandatory=True)
@@ -225,16 +333,57 @@ def _configure_mca_training_args(training_args, data_args, finetuning_args) -> N
     finetuning_args.use_mca = True
 
 
+def _validate_megatron_bridge_parallel_args(mb_args: MegatronBridgeArguments, world_size: int) -> None:
+    parallel_size = (
+        mb_args.tensor_model_parallel_size
+        * mb_args.pipeline_model_parallel_size
+        * mb_args.context_parallel_size
+        * mb_args.expert_model_parallel_size
+    )
+    if parallel_size > world_size:
+        raise ValueError(f"Total Megatron Bridge parallel size ({parallel_size}) exceeds `world_size` ({world_size}).")
+    if world_size % parallel_size != 0:
+        raise ValueError(
+            f"Total Megatron Bridge parallel size ({parallel_size}) must divide `world_size` ({world_size})."
+        )
+
+
+def _parse_train_mbridge_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_MBRIDGE_CLS:
+    parser = HfArgumentParser(_TRAIN_MBRIDGE_ARGS)
+    allow_extra_keys = is_env_enabled("ALLOW_EXTRA_ARGS")
+    model_args, data_args, training_args, finetuning_args, mb_args, generating_args = _parse_args(
+        parser, args, allow_extra_keys=allow_extra_keys
+    )
+    _configure_mbridge_training_args(training_args, data_args, finetuning_args)
+    return model_args, data_args, training_args, finetuning_args, mb_args, generating_args
+
+
+def _configure_mbridge_training_args(training_args, data_args, finetuning_args) -> None:
+    """Patch training args to avoid args checking errors and sync Megatron Bridge settings."""
+    training_args.predict_with_generate = False
+    training_args.generation_max_length = data_args.cutoff_len
+    training_args.generation_num_beams = 1
+    finetuning_args.use_megatron_bridge = True
+
+
 def _parse_infer_args(args: dict[str, Any] | list[str] | None = None) -> _INFER_CLS:
     parser = HfArgumentParser(_INFER_ARGS)
     allow_extra_keys = is_env_enabled("ALLOW_EXTRA_ARGS")
-    return _parse_args(parser, args, allow_extra_keys=allow_extra_keys)
+    model_args, data_args, finetuning_args, generating_args, kt_args = _parse_args(
+        parser, args, allow_extra_keys=allow_extra_keys
+    )
+    model_args._kt_inference_config = kt_args.kt_config
+    return model_args, data_args, finetuning_args, generating_args
 
 
 def _parse_eval_args(args: dict[str, Any] | list[str] | None = None) -> _EVAL_CLS:
     parser = HfArgumentParser(_EVAL_ARGS)
     allow_extra_keys = is_env_enabled("ALLOW_EXTRA_ARGS")
-    return _parse_args(parser, args, allow_extra_keys=allow_extra_keys)
+    model_args, data_args, eval_args, finetuning_args, kt_args = _parse_args(
+        parser, args, allow_extra_keys=allow_extra_keys
+    )
+    model_args._kt_inference_config = kt_args.kt_config
+    return model_args, data_args, eval_args, finetuning_args
 
 
 def get_ray_args(args: dict[str, Any] | list[str] | None = None) -> RayArguments:
@@ -244,11 +393,22 @@ def get_ray_args(args: dict[str, Any] | list[str] | None = None) -> RayArguments
 
 
 def get_train_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_CLS:
+    mb_args = None
     if is_env_enabled("USE_MCA"):
         model_args, data_args, training_args, finetuning_args, generating_args = _parse_train_mca_args(args)
+    elif is_env_enabled("USE_MEGATRON_BRIDGE"):
+        if not is_megatron_bridge_available():
+            raise ImportError(
+                "megatron-bridge is required when USE_MEGATRON_BRIDGE=1. "
+                "Please install `megatron-bridge` and its dependencies."
+            )
+        model_args, data_args, training_args, finetuning_args, mb_args, generating_args = _parse_train_mbridge_args(
+            args
+        )
     else:
         model_args, data_args, training_args, finetuning_args, generating_args = _parse_train_args(args)
         finetuning_args.use_mca = False
+        finetuning_args.use_megatron_bridge = False
 
     # Setup logging
     if training_args.should_log:
@@ -268,6 +428,22 @@ def get_train_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_CLS
     if finetuning_args.stage == "sft" and training_args.do_predict and not training_args.predict_with_generate:
         raise ValueError("Please enable `predict_with_generate` to save model predictions.")
 
+    if finetuning_args.use_megatron_bridge:
+        if finetuning_args.use_mca or finetuning_args.use_hyper_parallel:
+            raise ValueError("Megatron Bridge cannot be used together with MCA or HyperParallel.")
+        if finetuning_args.stage not in ["pt", "sft"]:
+            raise ValueError("Megatron Bridge only supports the `pt` and `sft` stages.")
+        if finetuning_args.finetuning_type not in ["full", "lora"]:
+            raise ValueError("Megatron Bridge only supports `full` and `lora` finetuning.")
+        if model_args.quantization_bit is not None:
+            raise ValueError("Quantized models are not supported with Megatron Bridge.")
+        if training_args.deepspeed is not None:
+            raise ValueError("Megatron Bridge is incompatible with DeepSpeed.")
+        if mb_args is None:
+            raise ValueError("Megatron Bridge arguments are missing. Please set USE_MEGATRON_BRIDGE=1.")
+        _validate_megatron_bridge_parallel_args(mb_args, training_args.world_size)
+        finetuning_args.megatron_bridge_args = mb_args
+
     if finetuning_args.stage in ["rm", "ppo"] and training_args.load_best_model_at_end:
         raise ValueError("RM and PPO stages do not support `load_best_model_at_end`.")
 
@@ -284,8 +460,10 @@ def get_train_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_CLS
         if finetuning_args.reward_model_type == "lora" and model_args.use_unsloth:
             raise ValueError("Unsloth does not support lora reward model.")
 
-        if training_args.report_to and training_args.report_to[0] not in ["wandb", "tensorboard"]:
-            raise ValueError("PPO only accepts wandb or tensorboard logger.")
+        if training_args.report_to and any(
+            logger not in ("wandb", "tensorboard", "trackio", "none") for logger in training_args.report_to
+        ):
+            raise ValueError("PPO only accepts wandb, tensorboard, or trackio logger.")
 
     if not model_args.use_kt and training_args.parallel_mode == ParallelMode.NOT_DISTRIBUTED:
         raise ValueError("Please launch distributed training with `llamafactory-cli` or `torchrun`.")
@@ -340,7 +518,12 @@ def get_train_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_CLS
     if training_args.deepspeed is not None and (finetuning_args.use_galore or finetuning_args.use_apollo):
         raise ValueError("GaLore and APOLLO are incompatible with DeepSpeed yet.")
 
-    if not finetuning_args.use_mca and training_args.fp8 and model_args.quantization_bit is not None:
+    if (
+        not finetuning_args.use_mca
+        and not finetuning_args.use_megatron_bridge
+        and training_args.fp8
+        and model_args.quantization_bit is not None
+    ):
         raise ValueError("FP8 training is not compatible with quantization. Please disable one of them.")
 
     if model_args.infer_backend != EngineName.HF:
@@ -352,14 +535,17 @@ def get_train_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_CLS
     if model_args.use_kt and is_deepspeed_zero3_enabled():
         raise ValueError("KTransformers is incompatible with DeepSpeed ZeRO-3.")
 
-    if data_args.neat_packing and is_transformers_version_greater_than("4.53.0"):
-        raise ValueError("Neat packing is incompatible with transformers>=4.53.0.")
-
     _set_env_vars()
     _verify_model_args(model_args, data_args, finetuning_args)
     _check_extra_dependencies(model_args, finetuning_args, training_args)
+    _verify_trackio_args(training_args)
 
-    if not finetuning_args.use_mca and training_args.fp8_enable_fsdp_float8_all_gather and not training_args.fp8:
+    if (
+        not finetuning_args.use_mca
+        and not finetuning_args.use_megatron_bridge
+        and training_args.fp8_enable_fsdp_float8_all_gather
+        and not training_args.fp8
+    ):
         logger.warning_rank0("fp8_enable_fsdp_float8_all_gather requires fp8=True. Setting fp8=True.")
         model_args.fp8 = True
 
@@ -427,7 +613,7 @@ def get_train_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_CLS
         training_args.resume_from_checkpoint is None
         and training_args.do_train
         and os.path.isdir(training_args.output_dir)
-        and not training_args.overwrite_output_dir
+        and not getattr(training_args, "overwrite_output_dir", False)  # for mca training args and transformers >= 5.0
         and can_resume_from_checkpoint
     ):
         last_checkpoint = get_last_checkpoint(training_args.output_dir)
@@ -456,10 +642,10 @@ def get_train_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_CLS
     elif training_args.fp16:
         model_args.compute_dtype = torch.float16
 
+    data_args.packing = data_args.packing if data_args.packing is not None else finetuning_args.stage == "pt"
     model_args.device_map = {"": get_current_device()}
     model_args.model_max_length = data_args.cutoff_len
     model_args.block_diag_attn = data_args.neat_packing
-    data_args.packing = data_args.packing if data_args.packing is not None else finetuning_args.stage == "pt"
 
     # Log on each process the small summary
     logger.info(
@@ -469,6 +655,13 @@ def get_train_args(args: dict[str, Any] | list[str] | None = None) -> _TRAIN_CLS
         f"compute dtype: {str(model_args.compute_dtype)}"
     )
     transformers.set_seed(training_args.seed)
+
+    if model_args.use_kt:
+        model_args.apply_kt_config(
+            finetuning_args,
+            training_args,
+            _get_kt_runtime_capacity(data_args, training_args, finetuning_args),
+        )
 
     return model_args, data_args, training_args, finetuning_args, generating_args
 
@@ -505,6 +698,8 @@ def get_infer_args(args: dict[str, Any] | list[str] | None = None) -> _INFER_CLS
     else:
         model_args.device_map = "auto"
 
+    model_args.configure_kt_loading(finetuning_args, data_args.cutoff_len)
+
     return model_args, data_args, finetuning_args, generating_args
 
 
@@ -523,6 +718,7 @@ def get_eval_args(args: dict[str, Any] | list[str] | None = None) -> _EVAL_CLS:
     _check_extra_dependencies(model_args, finetuning_args)
 
     model_args.device_map = "auto"
+    model_args.configure_kt_loading(finetuning_args, data_args.cutoff_len)
 
     transformers.set_seed(eval_args.seed)
 

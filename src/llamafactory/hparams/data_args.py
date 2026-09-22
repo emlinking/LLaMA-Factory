@@ -65,7 +65,9 @@ class DataArguments:
     )
     mix_strategy: Literal["concat", "interleave_under", "interleave_over", "interleave_once"] = field(
         default="concat",
-        metadata={"help": "Strategy to use in dataset mixing (concat/interleave) (undersampling/oversampling/sampling w.o. replacement)."},
+        metadata={
+            "help": "Strategy to use in dataset mixing (concat/interleave) (undersampling/oversampling/sampling w.o. replacement)."
+        },
     )
     interleave_probs: str | None = field(
         default=None,
@@ -123,6 +125,19 @@ class DataArguments:
         default=True,
         metadata={"help": "Whether or not to enable thinking mode for reasoning models."},
     )
+    reasoning_effort: str = field(
+        default="xhigh",
+        metadata={"help": "Reasoning effort for supported reasoning models (xhigh, medium, or low)."},
+    )
+    preserve_thinking: bool | None = field(
+        default=None,
+        metadata={
+            "help": (
+                "Whether or not to preserve thinking content in historical turns for reasoning models. "
+                "Uses the template default when unspecified."
+            )
+        },
+    )
     tokenized_path: str | None = field(
         default=None,
         metadata={
@@ -175,6 +190,9 @@ class DataArguments:
 
         if self.mask_history and self.train_on_prompt:
             raise ValueError("`mask_history` is incompatible with `train_on_prompt`.")
+
+        if self.reasoning_effort not in {"xhigh", "medium", "low"}:
+            raise ValueError("`reasoning_effort` must be one of xhigh, medium, or low.")
 
         if self.neat_packing:
             self.packing = True
