@@ -3436,6 +3436,60 @@
       "history": "history"
     }
   },
+  "langbridge-sw-Qwen3-8B-gemma-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/google/gemma-4-26B-A4B-it/Qwen/Qwen3-8B/v14/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "langbridge-sw-Qwen3-8B-gemma-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/google/gemma-4-26B-A4B-it/Qwen/Qwen3-8B/v14/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "langbridge-sw-DeepSeek-R1-Distill-Llama-8B-gemma-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/google/gemma-4-26B-A4B-it/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v14/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "langbridge-sw-DeepSeek-R1-Distill-Llama-8B-gemma-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/google/gemma-4-26B-A4B-it/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v14/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "langbridge-sw-phi-4-reasoning-gemma-train": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/google/gemma-4-26B-A4B-it/microsoft/Phi-4-reasoning/v14/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "langbridge-sw-phi-4-reasoning-gemma-val": {
+    "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/sw/google/gemma-4-26B-A4B-it/microsoft/Phi-4-reasoning/v14/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "langbridge-hi-Phi-4-reasoning-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/langbridge/hi/microsoft/Phi-4-reasoning/v13/train/data-00000-of-00001.arrow",
     "columns (optional)": {
@@ -4661,5 +4715,59 @@
       "prompt": "content"
     },
     "folder": "python"
+  },
+  "strategic-csw-sw-Qwen3-8B-gemma-train": {
+      "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/sw/google/gemma-4-26B-A4B-it/Qwen/Qwen3-8B/v14/train/data-00000-of-00001.arrow",
+      "columns (optional)": {
+          "prompt": "instruction",
+          "query": "input",
+          "response": "output",
+          "history": "history"
+      }
+  },
+  "strategic-csw-sw-Qwen3-8B-gemma-val": {
+      "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/sw/google/gemma-4-26B-A4B-it/Qwen/Qwen3-8B/v14/val/data-00000-of-00001.arrow",
+      "columns (optional)": {
+          "prompt": "instruction",
+          "query": "input",
+          "response": "output",
+          "history": "history"
+      }
+  },
+  "strategic-csw-sw-phi-gemma-train": {
+      "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/sw/google/gemma-4-26B-A4B-it/microsoft/Phi-4-reasoning/v14/train/data-00000-of-00001.arrow",
+      "columns (optional)": {
+          "prompt": "instruction",
+          "query": "input",
+          "response": "output",
+          "history": "history"
+      }
+  },
+  "strategic-csw-sw-phi-gemma-val": {
+      "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/sw/google/gemma-4-26B-A4B-it/microsoft/Phi-4-reasoning/v14/val/data-00000-of-00001.arrow",
+      "columns (optional)": {
+          "prompt": "instruction",
+          "query": "input",
+          "response": "output",
+          "history": "history"
+      }
+  },
+  "strategic-csw-sw-DeepSeek-R1-Distill-Llama-8B-gemma-train": {
+      "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/sw/google/gemma-4-26B-A4B-it/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v14/train/data-00000-of-00001.arrow",
+      "columns (optional)": {
+          "prompt": "instruction",
+          "query": "input",
+          "response": "output",
+          "history": "history"
+      }
+  },
+  "strategic-csw-sw-DeepSeek-R1-Distill-Llama-8B-gemma-val": {
+      "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/sw/google/gemma-4-26B-A4B-it/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v14/val/data-00000-of-00001.arrow",
+      "columns (optional)": {
+          "prompt": "instruction",
+          "query": "input",
+          "response": "output",
+          "history": "history"
+      }
   }
 }
