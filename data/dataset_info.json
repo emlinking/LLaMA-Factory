@@ -1,4 +1,22 @@
-{"strategic-csw-ig-llama-train": {
+{"synthetic-csw-sw-Qwen3-8B-train-gemma": {
+    "file_name": " /shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/sw/google/gemma-4-26B-A4B-it/Qwen/Qwen3-8B/v14/train/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "synthetic-csw-sw-Qwen3-8B-val-gemma": {
+    "file_name": " /shared/0/projects/code-switching/reasoning-behavior/sft_data/synthetic-csw/sw/google/gemma-4-26B-A4B-it/Qwen/Qwen3-8B/v14/val/data-00000-of-00001.arrow",
+    "columns (optional)": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "strategic-csw-ig-llama-train": {
     "file_name": "/shared/0/projects/code-switching/reasoning-behavior/sft_data/strategic-csw/ig/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/v12/train/data-00000-of-00001.arrow",
     "columns (optional)": {
       "prompt": "instruction",
